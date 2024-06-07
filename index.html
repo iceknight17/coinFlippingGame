@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="viewport" content="width=500, initial-scale=1" />
+	<title>Coin Filp Game</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="relative">
+    <img src="./assets/images/bg.jfif" class="w-screen h-screen absolute z-1" alt="bg" />
+    <div class="w-full h-screen flex flex-col p-6 z-10 relative">
+        <div class="w-full mt-2 flex flex-col flex-1" id="tab_1">
+            <div class="h-8 bg-gray-800 text-white rounded-lg pl-4 pr-5 w-max flex flex-row items-center gap-3 relative">
+                <span class="leading-8 text-xl font-medium">20</span>
+                <img src="./assets/images/toncoin-ton-logo.svg" class="w-6 h-6" alt="ton coin mark" />
+                <div class="w-5 h-5 absolute rounded-full bg-white text-black insert-bottom-right flex justify-center items-center cursor-pointer">
+                    <i class="fas fa-plus text-xs"></i>
+                </div>
+            </div>
+            <div class="flex-1 flex flex-col-reverse pb-2">
+                <div class="w-full flex items-center gap-4">
+                    <button type="button" data-side="head" class="btn-head text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xl px-5 py-3 flex-1 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Heads</button>
+                    <button type="button" data-side="tail" class="btn-tail text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xl px-5 py-3 flex-1 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Tails</button>
+                </div>
+                <div class="w-full flex items-center gap-12 justify-center mb-24">
+                    <img src="./assets/images/coin-front.png" data-side="head" class="btn-head w-32 h-32 cursor-pointer rounded-full" alt="ton coin mark" />
+                    <img src="./assets/images/coin-back.png" data-side="tail" class="btn-tail w-32 h-32 cursor-pointer rounded-full" alt="ton coin mark" />
+                </div>
+                <div class="w-full mb-48">
+                    <p class="mb-0 text-white text-4xl font-medium text-center text-black">Pick a side</p>
+                </div>
+            </div>
+        </div>
+        <div class="w-full mt-2 flex flex-col flex-1 hidden" id="tab_2">
+            <div class="h-8 bg-gray-800 text-white rounded-lg pl-4 pr-5 w-max flex flex-row items-center gap-3 relative">
+                <span class="leading-8 text-xl font-medium">20</span>
+                <img src="./assets/images/toncoin-ton-logo.svg" class="w-6 h-6" alt="ton coin mark" />
+                <div class="w-5 h-5 absolute rounded-full bg-white text-black insert-bottom-right flex justify-center items-center cursor-pointer">
+                    <i class="fas fa-plus text-xs"></i>
+                </div>
+            </div>
+            <div class="flex-1 flex flex-col-reverse pb-2">
+                <div class="w-full flex items-center gap-4">
+                    <button type="button" id="bet_btn" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xl px-5 py-3 flex-1 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Place bet</button>
+                </div>
+                <div class="w-full">
+                    <div class="w-full flex items-center gap-4">
+                        <button type="button" id="min_amount_btn" class="h-8 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Min</button>
+                        <input type="number" id="bet_amount" aria-describedby="helper-text-explanation" class="h-10 text-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0.5" required />
+                        <button type="button" id="max_amount_btn" class="h-8 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Max</button>
+                    </div>
+                    <div class="text-center text-white mt-2 mb-8">Min 0.1 - Max 1000</div>
+                </div>
+                <div class="w-full flex items-center gap-12 justify-center mb-12">
+                    <div class="coin w-32 h-32" id="coin">
+                        <div class="heads">
+                            <img src="./assets/images/coin-front.png" class="w-full h-full cursor-pointer rounded-full" />
+                        </div>
+                        <div class="tails">
+                            <img src="./assets/images/coin-back.png" class="w-full h-full cursor-pointer rounded-full" />
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mb-24">
+                    <p class="mb-0 text-white text-4xl font-medium text-center text-black">Place your bet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./assets/js/script.js"></script>
+</html>
